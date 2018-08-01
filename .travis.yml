@@ -4,6 +4,9 @@ python:
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+before_install:
+  - mysql -e 'CREATE DATABASE petapp_test;'
 # command to run tests
 script:
   - pytest # or py.test for Python versions 3.5 and below
+  - python test_app_db.py
