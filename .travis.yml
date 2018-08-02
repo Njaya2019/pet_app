@@ -12,7 +12,7 @@ before_install:
 # command to run tests
 script:
   - python test_app_db.py
-  - coverage run --source=pet_app setup.py test
+  - coverage run --source=pet_app test_app_db.py test
 
 
 after_success:
