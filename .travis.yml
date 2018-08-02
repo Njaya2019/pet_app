@@ -13,7 +13,7 @@ services:
 before_install:
   - mysql -e 'CREATE DATABASE pet;'
   - mysql -e 'USE pet; CREATE TABLE pets(id INT(100) NOT NULL AUTO_INCREMENT, 
-     subject VARCHAR(250) NOT NULL);'
+     pet_name VARCHAR(250) NOT NULL)ENGINE=InnoDB;'
 
 # command to run tests
 script:
