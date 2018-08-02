@@ -13,7 +13,7 @@ before_install:
 script:
   - git clone https://github.com/Njaya2019/pet_app.git
   - cd pet_app
-  - py.test test_app_db.py
+  - py.test
   - cd -
 
 
