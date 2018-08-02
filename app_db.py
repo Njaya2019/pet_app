@@ -4,7 +4,7 @@ import MySQLdb
 
 class PetAPIdb(MethodView):
     def connectDB(self):
-        db=MySQLdb.Connect("localhost","root","root","pet")
+        db=MySQLdb.Connect("localhost","root","","pet")
         return db
     def createCursor(self):
         cursor=self.connectDB().cursor()
