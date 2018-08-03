@@ -13,14 +13,15 @@ services:
 before_install:
   - mysql -e 'CREATE DATABASE pet;'
   - mysql -e 'USE pet; CREATE TABLE pets(id INT(100) NOT NULL AUTO_INCREMENT, 
-     pet_name VARCHAR(250) NOT NULL,PRIMARY KEY (id))ENGINE=InnoDB;'
+     pet_name VARCHAR(250) NOT NULL, PRIMARY KEY (id))ENGINE=InnoDB;'
+  - git clone https://github.com/Njaya2019/pet_app.git
+  - cd pet_app 
+  - py.test pet_app/test_app_db.py --cov=pet_app
+  - cd -
 
 # command to run tests
 script:
-  - git clone https://github.com/Njaya2019/pet_app.git
-  - cd pet_app
-  - py.test
-  - cd -
+  - py.test coveralls/test_app_db.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
 
 
 after_success:
