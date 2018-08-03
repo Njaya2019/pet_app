@@ -16,7 +16,7 @@ before_install:
      pet_name VARCHAR(250) NOT NULL, PRIMARY KEY (id))ENGINE=InnoDB;'
   - git clone https://github.com/Njaya2019/pet_app.git
   - cd pet_app 
-  - py.test pet_app/test_app_db.py --cov=pet_app
+  - py.test test_app_db.py --cov=pet_app
   - cd -
 
 # command to run tests
