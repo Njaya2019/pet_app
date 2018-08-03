@@ -14,4 +14,12 @@ def test_post(cli):
     assert response.status_code==200
     assert "pet created" in data["message"]
 
+def test_get(cli):
+    response=cli.get('/petsdb/')
+    code=response.status_code
+    data=json.loads(response.data)
+    if code==404:
+        assert "no pets in our records" in data["message"]
+    assert response.status_code==201
+
 
