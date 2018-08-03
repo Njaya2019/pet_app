@@ -20,7 +20,7 @@ before_install:
 
 # command to run tests
 script:
-  - py.test coveralls/test_app_db.py --doctest-modules --pep8 coveralls -v --cov coveralls --cov-report term-missing
+  - py.test test_app_db.py --doctest-modules 
 
 
 after_success:
