@@ -9,7 +9,7 @@ install:
 
 services:
   - mysql
-repo_token: i7S6cj9AQplcgjaROrenC6oCWl6ZrPz5q
+
 before_install:
   - mysql -e 'CREATE DATABASE pet;'
   - mysql -e 'USE pet; CREATE TABLE pets(id INT(100) NOT NULL AUTO_INCREMENT, 
