@@ -21,7 +21,7 @@ before_install:
 # command to run tests
 script:
   - py.test test_app_db.py --doctest-modules 
-  - coverage run -m test_app_db.py
+  - nosetests  --with-coverage --cover-package=pet_app
 
 
 after_success:
