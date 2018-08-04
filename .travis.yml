@@ -20,8 +20,8 @@ before_install:
 
 # command to run tests
 script:
-  - coverage run --source=pet_app test_app_db.py
-  - coverage report -m test_app_db.py
+  - coverage run app_db.py
+  - coverage report -m
   
 
 
