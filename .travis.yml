@@ -20,8 +20,8 @@ before_install:
 
 # command to run tests
 script:
-  - coverage run views.py
-  - coverage report -m views.py
+  - coverage run test_app_db.py
+  - coverage report -m test_app_db.py
   
 
 
