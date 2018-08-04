@@ -21,7 +21,7 @@ before_install:
 # command to run tests
 script:
   - coverage [run]
-omit =
+  - omit =
     # omit anything in a .local directory anywhere
     */.local/*
     # omit everything in /usr
