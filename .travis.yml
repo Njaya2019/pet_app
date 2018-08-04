@@ -20,7 +20,7 @@ before_install:
 
 # command to run tests
 script:
-  - coverage [run] omit =*/.local/*, /usr/*, utils/tirefire.py
+  - coverage run --source=pet-app test_app_db.py
   - coverage report -m
   
 
