@@ -20,14 +20,7 @@ before_install:
 
 # command to run tests
 script:
-  - coverage [run]
-  - omit =
-    # omit anything in a .local directory anywhere
-    */.local/*
-    # omit everything in /usr
-    /usr/*
-    # omit this single file
-    utils/tirefire.py
+  - coverage [run] omit =*/.local/*, /usr/*, utils/tirefire.py
   - coverage report -m
   
 
