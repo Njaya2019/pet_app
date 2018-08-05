@@ -41,4 +41,12 @@ def test_get(cli):
         assert "no pets in our records" in data["message"]
     assert response.status_code==201
 
+def test_get_pet(cli):
+    response=cli.get('/petsdb/1')
+    code=response.status_code
+    data=json.loads(response.data)
+    if code==404:
+        assert "no pets in our records" in data["message"]
+    assert response.status_code==201
+    assert data=={'Pet':[1,'Obama']}
 
