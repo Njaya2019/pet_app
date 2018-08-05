@@ -1,0 +1,5 @@
+[
+  "test_app_db.py::test_name",
+  "test_app_db.py::test_post",
+  "test_app_db.py::test_get"
+]

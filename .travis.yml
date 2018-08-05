@@ -16,6 +16,7 @@ before_install:
   - mysql -e 'CREATE DATABASE pet;'
   - mysql -e 'USE pet; CREATE TABLE pets(id INT(100) NOT NULL AUTO_INCREMENT, 
      pet_name VARCHAR(250) NOT NULL, PRIMARY KEY (id))ENGINE=InnoDB;'
+  - mysql -e 'USE pet; INSERT INTO pets(pet_name) VALUES("Obama")ENGINE=InnoDB;'    
   - git clone https://github.com/Njaya2019/pet_app.git
   - cd pet_app 
   - cd -
