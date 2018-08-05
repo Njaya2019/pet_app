@@ -24,7 +24,7 @@ before_install:
 # command to run tests
 script:
   - coverage run --source=. test_app_db.py
-  - coverage report app_db.py  test_app_db.py 
+  - coverage report test_app_db.py 
   
 
 
