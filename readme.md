@@ -4,3 +4,4 @@
 
 
 [![Coverage Status](https://coveralls.io/repos/github/Njaya2019/pet_app/badge.svg?branch=master)](https://coveralls.io/github/Njaya2019/pet_app?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/Njaya2019/pet_app/badge.svg?branch=master)](https://coveralls.io/github/Njaya2019/pet_app?branch=master)
