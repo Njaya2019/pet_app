@@ -35,18 +35,19 @@ def test_post(cli):
 
 def test_get(cli):
     response=cli.get('/petsdb/')
-    code=response.status_code
     data=json.loads(response.data)
-    if code==404:
-        assert "no pets in our records" in data["message"]
+    assert data=={'Pets':[[ 1,  "Obama"],[2, 'Raila']]}
     assert response.status_code==201
 
 def test_get_pet(cli):
     response=cli.get('/petsdb/1')
-    code=response.status_code
     data=json.loads(response.data)
-    if code==404:
-        assert "no pets in our records" in data["message"]
     assert response.status_code==201
     assert data=={'Pet':[1,'Obama']}
+
+def test_get_another_pet(cli):
+    response=cli.get('/petsdb/2')
+    data=json.loads(response.data)
+    assert response.status_code==404
+    assert 'Pet doesn\'t exist' in data["message"]
 

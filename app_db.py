@@ -22,9 +22,7 @@ class PetAPIdb(MethodView):
                 return jsonify({'message':'Pet doesn\'t exist'}), 404
         else:
             cur.execute("SELECT * FROM pets")
-            pets=cur.fetchall()
-            if not pets:
-                return jsonify({'message':'no pets in our records'}), 404
+            pets=cur.fetchall()   
             cur.close()
             return jsonify({'Pets':pets}), 201
             
