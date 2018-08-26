@@ -1,7 +1,0 @@
-[
-  "test_app_db.py::test_name",
-  "test_app_db.py::test_post",
-  "test_app_db.py::test_get",
-  "test_app_db.py::test_get_pet",
-  "test_app_db.py::test_get_another_pet"
-]
