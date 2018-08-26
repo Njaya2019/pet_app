@@ -18,10 +18,7 @@ def cur():
     cur.close()
     con.close()
 
-def test_name(cur):
-    cur.execute("SELECT pet_name FROM pets WHERE id= %s" % (1))
-    name=cur.fetchone()
-    assert name[0]=="Obama"
+
 
 
     
