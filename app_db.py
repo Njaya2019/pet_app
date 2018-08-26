@@ -12,7 +12,8 @@ class PetAPIdb(MethodView):
 
 
     def get(self, pet_id):
-        cur=self.createCursor()
+        con=self.connectDB()
+        cur=con.cursor()
         if pet_id:
             cur.execute("SELECT * FROM pets WHERE id =%s" % (pet_id))
             pet=cur.fetchone()
@@ -28,9 +29,6 @@ class PetAPIdb(MethodView):
             
     
     def post(self):
-        
-
-        
         con=self.connectDB()
         cur=con.cursor()
         pet_name=request.json["pet_name"]
