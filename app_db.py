@@ -3,25 +3,21 @@ from flask import request, jsonify, abort
 import MySQLdb
 
 class PetAPIdb(MethodView):
-    def connectDB(self):
-        db=MySQLdb.Connect("localhost","root","","pet")
-        return db
-    def createCursor(self):
-        cursor=self.connectDB().cursor()
-        return cursor
+   
 
 
 
             
     
     def post(self):
-        con=self.connectDB()
-        cur=con.cursor()
+        
+        db=MySQLdb.Connect("localhost","root","","pet")
+        cur=db.cursor()
         pet_name=request.json["pet_name"]
 
         cur.execute("INSERT INTO pets (pet_name) VALUES (%s)", [pet_name])
         
-        con.commit()
+        db.commit()
         return jsonify({'message':'pet created'})
 
         
