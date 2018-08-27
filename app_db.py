@@ -11,21 +11,7 @@ class PetAPIdb(MethodView):
         return cursor
 
 
-    def get(self, pet_id):
-        con=self.connectDB()
-        cur=con.cursor()
-        if pet_id:
-            cur.execute("SELECT * FROM pets WHERE id =%s" % (pet_id))
-            pet=cur.fetchone()
-            if pet:
-                return jsonify({'Pet':pet}), 201 
-            else:
-                return jsonify({'message':'Pet doesn\'t exist'}), 404
-        else:
-            cur.execute("SELECT * FROM pets")
-            pets=cur.fetchall()   
-            cur.close()
-            return jsonify({'Pets':pets}), 201
+
             
     
     def post(self):
