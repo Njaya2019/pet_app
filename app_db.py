@@ -23,9 +23,10 @@ class PetAPIdb(MethodView):
             return jsonify({'Pets':pets}), 201
 
     def post(self):
+        cur=self.cur
         pet_name=request.json["pet_name"]
-        self.cur.execute("INSERT INTO pets (pet_name) VALUES (%s)", [pet_name])
-        self.cur.commit()
+        cur.execute("INSERT INTO pets (pet_name) VALUES (%s)", [pet_name])
+        self.db.commit()
         return jsonify({'message':'pet created'})
 
         
