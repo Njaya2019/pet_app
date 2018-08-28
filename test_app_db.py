@@ -27,17 +27,20 @@ def test_get(cli):
     assert data=={'Pets':[[ 1,  "Obama"],[2, 'Raila']]}
     assert response.status_code==201
 
-def test_get_one(cli):
-    response=cli.get('/petsdb/1')
-    data=json.loads(response.data)
-    assert response.status_code==201
+    response2=cli.get('/petsdb/1')
+    data=json.loads(response2.data)
+    assert response2.status_code==201
     assert data=={'Pet':[1,'Obama']}
+    
 
-def test_get_another_pet(cli):
-    response=cli.get('/petsdb/3')
-    data=json.loads(response.data)
-    assert response.status_code==404
+    response3=cli.get('/petsdb/3')
+    data=json.loads(response3.data)
+    assert response3.status_code==404
     assert 'Pet doesn\'t exist' in data["message"]
+    
+
+
+   
 
 
 
