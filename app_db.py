@@ -19,7 +19,6 @@ class PetAPIdb(MethodView):
         else:
             self.cur.execute("SELECT * FROM pets")
             pets=self.cur.fetchall()   
-            self.cur.close()
             return jsonify({'Pets':pets}), 201
 
     def post(self):
