@@ -1,13 +1,31 @@
 from flask.views import MethodView
 from flask import request, jsonify, abort
 import MySQLdb
-class PetAPIdb(MethodView): 
+class PetAPIdb(MethodView):
+
+    db=MySQLdb.Connect("localhost","root","","pet")
+    cur=db.cursor()
+        
+
+
+    def get(self, pet_id):
+        if pet_id:
+            self.cur.execute("SELECT * FROM pets WHERE id =%s" % (pet_id))
+            pet=self.cur.fetchone()
+            if pet:
+                return jsonify({'Pet':pet}), 201 
+            else:
+                return jsonify({'message':'Pet doesn\'t exist'}), 404
+        else:
+            self.cur.execute("SELECT * FROM pets")
+            pets=self.cur.fetchall()   
+            self.cur.close()
+            return jsonify({'Pets':pets}), 201
+
     def post(self):
-        db=MySQLdb.Connect("localhost","root","","pet")
-        cur=db.cursor()
         pet_name=request.json["pet_name"]
-        cur.execute("INSERT INTO pets (pet_name) VALUES (%s)", [pet_name])
-        db.commit()
+        self.cur.execute("INSERT INTO pets (pet_name) VALUES (%s)", [pet_name])
+        self.cur.commit()
         return jsonify({'message':'pet created'})
 
         
