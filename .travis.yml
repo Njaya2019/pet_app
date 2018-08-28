@@ -25,7 +25,8 @@ before_install:
 # command to run tests
 script:
  #- coverage run -m pytest 
- - py.test --cov-report term --cov=pet_app/
+ #- py.test --cov-report term --cov=pet_app/
+ - py.test -vv test_app_db.py --cov test_app_db
   
 
 
