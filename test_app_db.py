@@ -31,10 +31,10 @@ def test_get_pet(cli):
     response=cli.get('/petsdb/1')
     data=json.loads(response.data)
     assert response.status_code==201
-    assert data=={'Pet':[1,'Obama']}
+    assert data=={'Pet':[[1,'Obama']]}
 
 def test_get_another_pet(cli):
-    response=cli.get('/petsdb/2')
+    response=cli.get('/petsdb/3')
     data=json.loads(response.data)
     assert response.status_code==404
     assert 'Pet doesn\'t exist' in data["message"]
