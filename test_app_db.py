@@ -15,6 +15,12 @@ def test_get(cli):
     data=json.loads(response.data)
     assert data=={'Pets':[[ 1,  "Obama"],[2, 'Raila']]}
     assert response.status_code==201
+def test_PetAPIdb_get(cli):
+    response=cli.get('/petsdb/1')
+    data=json.loads(response.data)
+    assert response.status_code==201
+    assert data=={'Pet':[1,'Obama']}
+
 
     
     
