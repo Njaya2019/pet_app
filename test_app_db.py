@@ -27,11 +27,11 @@ def test_get(cli):
     assert data=={'Pets':[[ 1,  "Obama"],[2, 'Raila']]}
     assert response.status_code==201
 
-def test_get(cli):
+def test_get_one(cli):
     response=cli.get('/petsdb/1')
     data=json.loads(response.data)
     assert response.status_code==201
-    assert data=={'Pet':[[1,'Obama']]}
+    assert data=={'Pet':[1,'Obama']}
 
 def test_get_another_pet(cli):
     response=cli.get('/petsdb/3')
