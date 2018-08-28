@@ -19,8 +19,8 @@ before_install:
      pet_name VARCHAR(250) NOT NULL, PRIMARY KEY (id))ENGINE=InnoDB;'
   - mysql -e 'USE pet; INSERT INTO pets(pet_name) VALUES("Obama")'    
   - git clone https://github.com/Njaya2019/pet_app.git
-  #- cd pet_app 
-  - cd -
+  - cd pet_app 
+  #- cd -
 
 # command to run tests
 script:
