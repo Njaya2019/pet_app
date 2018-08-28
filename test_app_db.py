@@ -6,7 +6,6 @@ import MySQLdb
 def cli():
     client=app.test_client()
     return client
-    
 @pytest.fixture(scope="module")
 def cur():
     petApi=PetAPIdb()
@@ -14,13 +13,10 @@ def cur():
     yield cur
     cur.close()
     petApi.db.close()
-
-
 def test_post(cli):
     response=cli.post('/petsdb',data=json.dumps(dict(pet_name="Raila")),content_type="application/json")
     data = json.loads(response.data)
     assert "pet created" in data["message"]
-
 def test_get(cli):
     response=cli.get('/petsdb/')
     data=json.loads(response.data)
