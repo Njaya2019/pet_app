@@ -28,15 +28,15 @@ def test_get(cli):
     assert response.status_code==201
 
     response2=cli.get('/petsdb/1')
-    data=json.loads(response2.data)
+    data2=json.loads(response2.data)
     assert response2.status_code==201
-    assert data=={'Pet':[1,'Obama']}
+    assert data2=={'Pet':[1,'Obama']}
     
 
     response3=cli.get('/petsdb/3')
-    data=json.loads(response3.data)
+    data3=json.loads(response3.data)
     assert response3.status_code==404
-    assert 'Pet doesn\'t exist' in data["message"]
+    assert 'Pet doesn\'t exist' in data3["message"]
     
 
 
