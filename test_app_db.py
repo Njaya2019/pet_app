@@ -20,6 +20,11 @@ def test_PetAPIdb_get(cli):
     data=json.loads(response.data)
     assert response.status_code==201
     assert data=={'Pet':[1,'Obama']}
+def test_get_unavailable_pet(cli):
+    response=cli.get('/petsdb/'+str(3))
+    data=json.loads(response.data)
+    assert response.status_code==404
+    assert 'Pet doesn\'t exist' in data["message"]
 
 
     
